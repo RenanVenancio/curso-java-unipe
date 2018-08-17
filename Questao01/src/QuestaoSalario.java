@@ -1,11 +1,10 @@
 import java.util.Scanner;
-
-public class Salario {
+public class QuestaoSalario {
 
 	public static void main(String[] args) {
-
+		
 		Scanner ler = new Scanner(System.in);
-	
+		
 		String salStr;
 		String alStr;
 		
@@ -22,8 +21,8 @@ public class Salario {
 		
 		System.out.printf("O novo salário é %.2f \n", salario);
 		
-		
+
+	}
 
 }
 
-}
