@@ -14,7 +14,7 @@ public class QuestaoSalario {
 		System.out.print("Digite o Salário: ->");   
 		salario = ler.nextFloat();						//Lendo o salário
 		
-		System.out.print("Quantos (%) de aumento deseja dar ao funcionáriio? ->");
+		System.out.print("Quantos (%) de aumento deseja dar ao funcionário? ->");
 		aumentoPercent = ler.nextFloat();			   //Lendo o aumento
 	
 		salario = (salario * (aumentoPercent /100)) + salario;   //Efetuando o cálculo da porcentagem
