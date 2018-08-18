@@ -23,13 +23,13 @@ public class Tabuada {
 			
 			switch(op){
 			case "+":
-				System.out.printf("|  %d %s %d = %.2f  |\n",num, op, i,(i+num));	break;
+				System.out.printf("|  %d %s %d = %.2f  |\n",num, op, i,(float)(i+num));	break;
 			case "-":
-				System.out.printf("|  %d %s %d = %.2f  |\n",num, op, i,(i-num));	break;
+				System.out.printf("|  %d %s %d = %.2f  |\n",num, op, i,(float)(i-num));	break;
 			case "*":
-				System.out.printf("|  %d %s %d = %.2f  |\n",num, op, i,(i*num));	break;
+				System.out.printf("|  %d %s %d = %.2f  |\n",num, op, i,(float)(i*num));	break;
 			case "/":
-				System.out.printf("|  %d %s %d = %.2f  |\n",num, op, i,(float)num / (float)i);	break;
+				System.out.printf("|  %d %s %d = %.2f  |\n",num, op, i,(float)(num / i));	break;
 			default:
 				System.out.println("Opção inválida :("); 
 				i = 10; break;

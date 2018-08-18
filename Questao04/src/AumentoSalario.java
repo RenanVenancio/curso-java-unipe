@@ -22,7 +22,7 @@ public class AumentoSalario {
 			}
 			if((salario > 0) && (salario <= 500)) {
 				salario = (salario * 0.2f) + salario;
-				System.out.println("Parabéns " + nome + " você ganhou um aumento de 20% seu salário agora é R$ " + salario);
+				System.out.println("Parabéns " + nome + " você ganhou um aumento de 20%, seu salário agora é R$ " + salario);
 				System.out.println("-------------------------------------------------------------------------");
 			
 			}else if(salario > 500) {

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class MediaAluno {
 	
 	/*
@@ -15,12 +16,37 @@ public class MediaAluno {
 	public static void main(String[] args) {
 		
 		Scanner ler = new Scanner(System.in);
+		int rep = 0, exa = 0, apr = 0;   //Variáveis de aprovados, reprovados, exame
+		float mediaTurma = 0.0f;
 		
-		AlunoNotas notas = new AlunoNotas();
 		
-		System.out.println("Digte a primeira nota :");
-		notas.setNotaUm(5,5f);
-		System.out.println(notas.getNotaUm());
+		AlunoNotas notas = new AlunoNotas();    //Instanciando a classe na memória
+		
+		for(int i=0; i<6; i++) { //Abre for
+		
+			System.out.print("Digite a primeira nota do aluno " + (i+1) + ": ");
+			notas.setNotaUm(ler.nextFloat());		//Setando um valor para nota 1
+		
+			System.out.print("Digite a segunda nota do aluno " + (i+1) + ": ");
+			notas.setNotaDois(ler.nextFloat());		//Setando um valor para nota 2
+			ler.nextLine();
+			notas.setMedia();
+			
+			
+			if(notas.getMedia() < 3) {	//Abre if
+				rep++;					//Adiciona +1 a lista de reprovados
+			}else if((notas.getMedia() >=3) && (notas.getMedia() <7)) {
+				exa++;					//Adiciona +1 a lista de exame final
+			}else if(notas.getMedia() > 7) {
+				apr++;					//Adiciona +1 a lista de aprovados
+			}					//Fecha if
+			
+			mediaTurma += notas.getMedia();   //Acumulando os valores de media
+			
+		
+		}		//Fechar for
+		mediaTurma /= 6;
+		System.out.println("RESULTADOS:\n REPROVADOS: "+ rep + "\tEXAME: "+ exa + "\tAPROVADOS: " + apr + "\tMEDIA DA TURMA: "+ mediaTurma);
 
 	}
 }

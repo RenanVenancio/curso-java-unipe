@@ -1,8 +1,8 @@
 public class AlunoNotas {
 
-	private float notaUm;
-	private float notaDois;
-	private float media;
+	private float notaUm = 0.00f;
+	private float notaDois = 0.00f;;
+	private float media = 0.00f;;
 	
 	
 
@@ -10,7 +10,7 @@ public class AlunoNotas {
 		return this.notaUm;		
 	}
 	
-	public setNotaUm(float notaUm) {		
+	public void setNotaUm(float notaUm) {		
 		this.notaUm = notaUm;				
 	}
 	
@@ -18,17 +18,27 @@ public class AlunoNotas {
 		return this.notaDois;		
 	}
 	
-	public float setNotaDois(float notaDois) {		
+	public void setNotaDois(float notaDois) {		
 		this.notaDois = notaDois;				
 	}
 	
 	public float getMedia() {
-		this.setMedia();  				//Setando a média
+		  				
 		return this.media;				//Retornando a media para quem chamou a função
 	}
 	
-	private void setMedia(float media) { //A fução é void porque ela não retorna nenhum valor, ela os define diretamente, e ela é privada para não ser chamada fora da classe
-		this.media = (this.notaUm + this.notaDois)/2;				
+	public void setMedia() { //A fução é void porque ela não retorna nenhum valor, ela os define diretamente, e ela é privada para não ser chamada fora da classe
+		this.media = (this.notaUm + this.notaDois)/2;
+		
+		if(this.media < 3) {
+			System.out.println(" \n Média do aluno: "+ this.media + "-------->REPROVADO!\n---------------------------------------------------");
+		}else if((media >=3) && (media <7)) {
+			System.out.println(" \n Média do aluno: "+ this.media + "-------->EXAME\n---------------------------------------------------");			
+		}else if(media > 7) {
+			System.out.println(" \n Média do aluno: "+ this.media + "-------->APROVADO!\n----------------------------------------------------");			
+		}
+		
+		
 	}
 	
 	

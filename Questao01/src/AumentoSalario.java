@@ -1,8 +1,8 @@
 import java.util.Scanner;
-public class QuestaoSalario {
+
+public class AumentoSalario {
 
 	public static void main(String[] args) {
-		
 		Scanner ler = new Scanner(System.in);
 		
 		String salStr;
@@ -20,9 +20,7 @@ public class QuestaoSalario {
 		salario = (salario * (aumentoPercent /100)) + salario;   //Efetuando o cálculo da porcentagem
 		
 		System.out.printf("O novo salário é %.2f \n", salario);
-		
 
 	}
 
 }
-
