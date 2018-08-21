@@ -19,62 +19,12 @@ public class Clinica {
 	public static void main(String[] args) {
 		
 		Scanner ler = new Scanner(System.in);
-        String nome = "";
-        int idade = 0;
-        char sexo;
-        float peso = 0.00f, altura = 0;
+		ArrayList<Pacientes> listPac = new ArrayList<>();  //Criando um array de objetos tipo Paciente
         
-        
-        int qtdPac = 0, qtdPacHomem = 0, qtdPacMulher = 0, mediaIdadeHomens = 0, qtdMulheresAltPeso = 0, pessoaIdadeDztVintCc = 0;
-        ArrayList<String> pacMaisVelho = new ArrayList<String> ();				//pode ser que haja mais de um paciente mais velho com a mesma idade
-        ArrayList<String> mulherMaisBaixa = new ArrayList<String> ();			//pode ser que haja duas ou mais mulheres mais baixas com o mesmo tamanho
- 
-    	System.out.println("-------------------------------------\n* BEM VINDO O CADASTRO DE PACIENTES * \n-------------------------------------\n");
-
-        
-        while(!nome.toLowerCase().equals("fim")) {
-        
-        	System.out.print("NOME DO PACIENTE: -->"); nome = ler.nextLine();
-        	
-        	if(nome.toLowerCase().equals("fim") == true) {	break;	} // sai do loop imediatamente caso seja digitafo fim
-        	
-        	System.out.print("SEXO (M = MASCULINO >> F = FEMININO): -->"); sexo = ler.nextLine().charAt(0);       	
-        	System.out.print("PESO EM KG DO PACIENTE:  -->"); peso = ler.nextFloat();
-        	System.out.print("DIGITE A IDADE DO PACIENTE:  -->"); idade = ler.nextInt();
-        	System.out.print("DIGITE A ALTURA DO PACIENTE:  -->"); altura = ler.nextFloat();
-        	ler.nextLine();
-                
-                qtdPac ++;
-                
-                if((idade > 18) && (idade < 25)) {
-                	pessoaIdadeDztVintCc++;
-                }
-                
-                if((sexo == 'm') || (sexo == 'M')){
-                    System.out.println("HOMEM");
-                    mediaIdadeHomens += idade;
-                    qtdPacHomem ++;
-                }else if ((sexo == 'f') || (sexo == 'F')) {
-                	
-                	if((altura > 1.60) && (altura< 1.70) && (peso > 70.00)) {
-                		qtdMulheresAltPeso ++;
-                	}
-                	qtdPacMulher ++;
-                }
-                
-                if(idade > idade) {
-                	pacMaisVelho.add(nome);
-                }
-                
-                
-        }
-        mediaIdadeHomens /= qtdPacHomem;
-    System.out.println("\n=========================RELATÓRIO=============================");  
-	System.out.println(qtdPac + " PACIENTES CADASTRADOS!");
-	System.out.println("MÉDIA DA IDADE DE PACIENTES HOMENS "+ mediaIdadeHomens);
-	System.out.println(qtdMulheresAltPeso + " MULHERES COM ALTURA ENTRE 1,60 E 1,70 E PESO ACIMA DE 70kg");
-	System.out.println(pessoaIdadeDztVintCc +"PACIENTES COM IDADES ENTRE 18 E 25 ANOS");
-
+		Pacientes pac = new Pacientes();
+		
+		pac.setNome(ler.nextLine());
+		
+		listPac.add(pac);
 	}
-	
 }
