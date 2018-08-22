@@ -48,11 +48,9 @@ public class Clinica {
 				System.out.print("================PACIENTE CADASTRADO!==============\n\n");
 				ler.nextLine();
 				
-				System.out.println("PACIENTE: " + pac.getNome());
-				System.out.println("PESO: " + pac.getPeso());
-				System.out.println("SEXO: " + pac.getSexo());
 				
 				listPac.add(pac);
+				pac = new Pacientes();	// Instancio a classe novamente para armazenar uma nova pessoa
 				
 				
 			}
