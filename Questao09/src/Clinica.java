@@ -6,10 +6,10 @@ import java.util.ArrayList;
    paciente.
    
    Exiba um relatório contendo:
-	a quantidade de pacientes.
-	a média de idade dos homens.
-	a quantidade de mulheres com altura entre 1,60 e 1,70 e peso acima de 70kg.
-	a quantidade de pessoas com idade entre 18 e 25.
+	a quantidade de pacientes. ok
+	a média de idade dos homens. ok
+	a quantidade de mulheres com altura entre 1,60 e 1,70 e peso acima de 70kg. ok
+	a quantidade de pessoas com idade entre 18 e 25. ok
 	o nome do paciente mais velho.
 	o nome da mulher mais baixa
  
@@ -20,24 +20,27 @@ public class Clinica {
 		
 		Scanner ler = new Scanner(System.in);
 		ArrayList<Pacientes> listPac = new ArrayList<Pacientes>();  //Criando um array de objetos tipo Pacientes
-        
 		Pacientes pac = new Pacientes();   //Instanciando o objeto na memória
+		String pacName = "";
+		int mIdHomem = 0, qtdHomens = 0, qtdMulheresIdPeso = 0, pessIdDzVtcc = 0;
+		
+		
 		
 		System.out.print("-------------------------------------------\n");
 		System.out.println("           CADASTRO DE PACIENTES");
 		System.out.print("-------------------------------------------\n");
 		
-		String pacName = "";
+		
 		
 		while(!pac.getNome().toLowerCase().equals("fim")) { 
 			
 			System.out.print("NOME DO PACIENTE: "); pacName = ler.nextLine();
 			
-			if(pacName.toLowerCase().equals("fim")) {	
+			if(pacName.toLowerCase().equals("fim")) {	//Converte o nome para letras minusculas para fazer a comparação
 				
-				break;	
+				break;	//Se foi digitado fim, encerre o loop
 			
-			}else {
+			}else { //Senão, leia os dados
 			
 				pac.setNome(pacName);			
 			
@@ -49,7 +52,7 @@ public class Clinica {
 				ler.nextLine();
 				
 				
-				listPac.add(pac);
+				listPac.add(pac);	//Salvando dados lidos no arraylist
 				pac = new Pacientes();	// Instancio a classe novamente para armazenar uma nova pessoa
 				
 				
@@ -57,13 +60,53 @@ public class Clinica {
 		
 		}
 		
-	for(int i = 0; i < listPac.size(); i++) {
-		System.out.println("PACIENTE: " + listPac.get(i).getNome());
-		System.out.println("PESO: " + listPac.get(i).getPeso());
-		System.out.println("SEXO: " + listPac.get(i).getSexo());
-	}
 		
 		
 		
-	}
+		
+		for(int i = 0; i < listPac.size(); i++) {
+			
+			if((listPac.get(i).getSexo() == 'm') || (listPac.get(i).getSexo() == 'M')) {
+				mIdHomem += listPac.get(i).getIdade();		//Guardando a media de idade dos homens
+				qtdHomens++;
+			}		
+			
+			if(((listPac.get(i).getSexo() == 'f') || (listPac.get(i).getSexo() == 'F')) && ((listPac.get(i).getAltura() > 1.60) || (listPac.get(i).getAltura() < 1.70)) && ((listPac.get(i).getPeso() > 70.00))) {
+				qtdMulheresIdPeso++; 		//Mulheres com altura entre 1,60 e 1,70 e peso acima de 70
+			}
+			if((listPac.get(i).getIdade() > 18) && (listPac.get(i).getIdade() < 25)){
+				pessIdDzVtcc++;		//Pessoas com idade entre 18 e 25
+			}		
+			
+		}	//Fim for
+		if(qtdHomens == 0) {		
+			
+		}else {
+		mIdHomem /= qtdHomens;  //Calculando a media de idade dos homens
+		}
+		
+		System.out.println("\n\n============================================");
+		System.out.println("==================RELATÓRIO=================");
+		System.out.println("============================================");
+		System.out.println(listPac.size() + " PACIENTES CADASTRADOS.");
+		System.out.println("MÉDIA DE IDADE DOS HOMENS: " + mIdHomem);
+		System.out.println("MULHERES COM ALTURA ENTRE 1,60 E 1,70 E PESO ACIMA DE 70KG: " + qtdMulheresIdPeso);
+		System.out.println("QUANTIDADE DE PESSOAS COM IDADE ENTRE 18 E 25: " + pessIdDzVtcc);
+		
+		int idPacMaisVelho = 0, qtdPacMaisVelho = 0;
+		
+		for(int i = 0; i < listPac.size(); i++) {   //Paciente mais velho
+			
+			if(listPac.get(i).getIdade() > idPacMaisVelho) {
+				idPacMaisVelho = listPac.get(i).getIdade();
+			}
+			if(idPacMaisVelho == listPac.get(i).getIdade()) {
+				qtdPacMaisVelho++;
+			}
+		
+		}
+		System.out.println("IDADE DO PACIENTE MAIS VELHO = "+ idPacMaisVelho);
+		
+		
+	} //Fechamento da classe main
 }

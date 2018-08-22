@@ -50,8 +50,7 @@ public class Pacientes {
 	public void setAltura(float altura) {
 		this.altura = altura;
 	}
-	
-	
+		
 	
 	
 }
