@@ -13,11 +13,11 @@
  */
 public class Pacientes {
 
-	private String nome;
+	private String nome = "";
 	private char sexo;
-	private float peso;
-	private int idade;
-	private float altura;
+	private float peso = 0.00f;
+	private int idade = 0;
+	private float altura = 0.00f;
 	
 	
 	public String getNome() {
