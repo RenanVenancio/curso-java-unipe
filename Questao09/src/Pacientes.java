@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /*9.	Leia uma relação de pacientes de uma clínica, cada um com o nome, o sexo, o peso, a 
   idade e a altura.  Para sinalizar o fim da lista será fornecido “fim” no nome do último
    paciente.
@@ -12,7 +13,7 @@
  
  */
 public class Pacientes {
-
+	Scanner ler = new Scanner(System.in);
 	private String nome = "";
 	private char sexo;
 	private float peso = 0.00f;
@@ -30,6 +31,12 @@ public class Pacientes {
 		return sexo;
 	}
 	public void setSexo(char sexo) {
+		while((sexo != 'f') || (sexo != 'F') || (sexo != 'm') || (sexo != 'M') == false){
+			System.out.println("Entrada inválida! Digite o sexo novamente:\nM = MASCULINO\nF=FEMININO\n");
+			sexo = ler.next().charAt(0);
+		}
+		
+		
 		this.sexo = sexo;
 	}
 	public float getPeso() {

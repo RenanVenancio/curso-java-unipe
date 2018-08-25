@@ -94,7 +94,8 @@ public class Clinica {
 		System.out.println("QUANTIDADE DE PESSOAS COM IDADE ENTRE 18 E 25: " + pessIdDzVtcc);
 		
 		int idPacMaisVelho = 0, qtdPacMaisVelho = 0;   //Guarda a idade do paciente mais velho e q quantia de pacientes com a mesma idade
-		int altMulherMaisBaixa = 0, qtdMulherMaisBaixa = 0;
+		int qtdMulherMaisBaixa = 0;
+		float altMulherMaisBaixa = 10.00f;
 		
 		for(int i = 0; i < listPac.size(); i++) {   
 			
@@ -107,6 +108,11 @@ public class Clinica {
 			
 			if(((listPac.get(i).getSexo() == 'f') || (listPac.get(i).getSexo() == 'F')) && (listPac.get(i).getAltura() < altMulherMaisBaixa)) {
 				qtdMulherMaisBaixa++;
+				
+				if(listPac.get(i).getAltura() < altMulherMaisBaixa) {
+					altMulherMaisBaixa = listPac.get(i).getAltura();
+				}
+				
 			}
 		
 		}
@@ -118,6 +124,12 @@ public class Clinica {
 			}
 		}
 		
+		System.out.println("\nMULHER(RES) MAIS BAIXA(S):");
+		for(int i = 0; i < listPac.size(); i++) {   //Printando nome do(s) Pacientes mais velhos
+			if(((listPac.get(i).getSexo() == 'f') || (listPac.get(i).getSexo() == 'F')) && (listPac.get(i).getAltura() == altMulherMaisBaixa)) {
+				System.out.println("*****NOME: " + listPac.get(i).getNome() + " | ALTURA: " + listPac.get(i).getAltura());
+			}
+		}
 		
 		
 		
