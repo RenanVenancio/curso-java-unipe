@@ -31,12 +31,6 @@ public class Pacientes {
 		return sexo;
 	}
 	public void setSexo(char sexo) {
-		while((sexo != 'f') || (sexo != 'F') || (sexo != 'm') || (sexo != 'M') == false){
-			System.out.println("Entrada inválida! Digite o sexo novamente:\nM = MASCULINO\nF=FEMININO\n");
-			sexo = ler.next().charAt(0);
-		}
-		
-		
 		this.sexo = sexo;
 	}
 	public float getPeso() {
